@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: spring-aca-demo
+  cloud:
+    azure:
+      credential:
+        managed-identity-enabled: true
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+azure:
+  storage:
+    account-name: ${AZURE_STORAGE_ACCOUNT_NAME:mystorageaccount}
